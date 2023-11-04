@@ -1,0 +1,31 @@
+.table {
+  border: solid 1px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.th {
+  border: solid 1px;  
+}
+
+.td {
+  border: solid 1px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+tbody .tr:nth-child(odd) {
+  background-color: lightgray;
+}
+
+@media only screen and (max-width: 700px) {
+  .table_container {
+    width: 100vw;
+    overflow-x: scroll;
+  }
+
+  .table {
+    width: 989px;
+  }
+}

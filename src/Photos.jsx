@@ -1,3 +1,4 @@
+import PhotosModule from './Photos.module.css';
 import { useEffect } from "react";
 
 export const Photos = (props) => {  
@@ -11,32 +12,35 @@ export const Photos = (props) => {
 
   return (
     <>
-      <table>
+      <div className={PhotosModule.table_container}>
+      <table className={PhotosModule.table}>
         <thead>
           <tr>
-            <th>albumId</th>
-            <th>id</th>
-            <th>title</th>
-            <th>url</th>
-            <th>thumbnailUrl</th>
+            <th className={PhotosModule.th}>albumId</th>
+            <th className={PhotosModule.th}>id</th>
+            <th className={PhotosModule.th}>title</th>
+            <th className={PhotosModule.th}>url</th>
+            <th className={PhotosModule.th}>thumbnailUrl</th>
           </tr>
         </thead>
         <tbody>
           {props.photos.map((element, index) => {
             if (index >= (props.page - 1) * props.the_number_of_elements_per_page && index < (props.page * props.the_number_of_elements_per_page)) {
               return(
-                <tr key={index}>
-                  <td>{element.albumId}</td>
-                  <td>{element.id}</td>
-                  <td>{element.title}</td>
-                  <td>{element.url}</td>
-                  <td>{element.thumbnailUrl}</td>
+                <tr className={PhotosModule.tr} key={index}>
+                  <td className={PhotosModule.td}>{element.albumId}</td>
+                  <td className={PhotosModule.td}>{element.id}</td>
+                  <td className={PhotosModule.td}>{element.title}</td>
+                  <td className={PhotosModule.td}>{element.url}</td>
+                  <td className={PhotosModule.td}>{element.thumbnailUrl}</td>
                 </tr>
               )
             }
           })}
         </tbody>
       </table>
+      </div>
+      
     </>
   );
 }
