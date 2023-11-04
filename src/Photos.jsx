@@ -8,7 +8,7 @@ export const Photos = (props) => {
     .then((json) => {
       props.setPhotos(json);
     })
-  }, []);
+  }, [props]);
 
   return (
     <>
@@ -26,7 +26,7 @@ export const Photos = (props) => {
         <tbody>
           {props.photos.map((element, index) => {
             if (index >= (props.page - 1) * props.the_number_of_elements_per_page && index < (props.page * props.the_number_of_elements_per_page)) {
-              return(
+              return (
                 <tr className={PhotosModule.tr} key={index}>
                   <td className={PhotosModule.td}>{element.albumId}</td>
                   <td className={PhotosModule.td}>{element.id}</td>
@@ -35,6 +35,8 @@ export const Photos = (props) => {
                   <td className={PhotosModule.td}>{element.thumbnailUrl}</td>
                 </tr>
               )
+            } else {
+              return <></>
             }
           })}
         </tbody>

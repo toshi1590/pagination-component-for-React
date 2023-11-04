@@ -1,7 +1,7 @@
 const Pagination = (props) => {  
   let the_number_of_pagination_buttons;
 
-  if (props.the_number_of_elements % props.the_number_of_elements_per_page != 0) {
+  if (props.the_number_of_elements % props.the_number_of_elements_per_page !== 0) {
     the_number_of_pagination_buttons = Math.floor(props.the_number_of_elements / props.the_number_of_elements_per_page) + 1;
   } else {
     the_number_of_pagination_buttons = Math.floor(props.the_number_of_elements / props.the_number_of_elements_per_page);
@@ -12,7 +12,7 @@ const Pagination = (props) => {
   }
 
   const back = () => {
-    if (props.page != 1) {
+    if (props.page !== 1) {
       props.setPage(props.page - 1);
     }
   }
@@ -22,7 +22,7 @@ const Pagination = (props) => {
   }
 
   const next = () => {
-    if (props.page != the_number_of_pagination_buttons) {
+    if (props.page !== the_number_of_pagination_buttons) {
       props.setPage(props.page + 1);
     }
   }
